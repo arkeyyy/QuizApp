@@ -1,4 +1,4 @@
-# Quiz Lab — CSIT228 Quiz App
+# Quiz Lab: CSIT228 Quiz App
 
 A JavaFX multiple-choice quiz implementing the **Quiz App** task on page 2 of
 `CSIT228-Midterms-Laboratory-v2.pdf`, including both named bonuses.
