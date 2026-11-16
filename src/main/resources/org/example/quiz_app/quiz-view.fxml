@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="appRoot" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.quiz_app.QuizController" stylesheets="@quiz.css" styleClass="app-root">
+    <HBox alignment="CENTER_LEFT" spacing="12" styleClass="topbar">
+        <VBox spacing="2">
+            <Label text="Quiz Lab" styleClass="brand"/>
+            <Label text="JAVA FUNDAMENTALS" styleClass="brand-caption"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <CheckBox fx:id="themeToggle" text="Dark mode" onAction="#toggleTheme"/>
+    </HBox>
+    <ScrollPane fx:id="scroller" fitToWidth="true" hbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+        <VBox alignment="TOP_CENTER" spacing="20">
+            <padding><Insets top="32" right="32" bottom="32" left="32"/></padding>
+            <Label fx:id="storageWarning" wrapText="true" maxWidth="800" styleClass="warning" visible="false" managed="false"/>
+
+            <VBox fx:id="homeScreen" spacing="24" maxWidth="800">
+                <Label text="CSIT228 / MIDTERM LABORATORY" styleClass="eyebrow"/>
+                <VBox spacing="18" styleClass="card,hero">
+                    <Label text="A QUICK KNOWLEDGE CHECK" styleClass="eyebrow"/>
+                    <Label text="Test your Java&#10;fundamentals." wrapText="true" styleClass="hero-title"/>
+                    <Label text="From your first variable to JavaFX controls. Pick an answer, check your understanding, and see how you did." wrapText="true" maxWidth="580" styleClass="body-copy"/>
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <Label fx:id="questionCount" text="10 questions" styleClass="pill"/>
+                        <Label text="4 choices each" styleClass="muted"/>
+                        <Label text="•" styleClass="muted"/>
+                        <Label text="No time limit" styleClass="muted"/>
+                    </HBox>
+                    <Button fx:id="startButton" text="Start Quiz" onAction="#startQuiz" styleClass="primary"/>
+                </VBox>
+                <VBox spacing="14" styleClass="card">
+                    <Label text="Make it your own" styleClass="section-title"/>
+                    <Label text="Add a question to practice the topics you want to remember." wrapText="true" styleClass="muted"/>
+                    <Button fx:id="addQuestionButton" text="+ Add Question" onAction="#addQuestion" styleClass="secondary"/>
+                    <Label fx:id="homeNotice" wrapText="true" styleClass="small,muted"/>
+                </VBox>
+                <Label text="HOW IT WORKS   Select an answer → Submit → Next question" wrapText="true" styleClass="small,muted"/>
+            </VBox>
+
+            <VBox fx:id="quizScreen" spacing="20" maxWidth="800" visible="false" managed="false">
+                <HBox alignment="CENTER_LEFT" spacing="16">
+                    <Label fx:id="questionNumber" styleClass="eyebrow"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="scoreLabel" styleClass="score-pill"/>
+                </HBox>
+                <ProgressBar fx:id="questionProgress" maxWidth="Infinity" progress="0"/>
+                <VBox spacing="20" styleClass="card">
+                    <Label text="CHOOSE THE BEST ANSWER" styleClass="eyebrow"/>
+                    <Label fx:id="questionLabel" wrapText="true" maxWidth="Infinity" styleClass="question-title"/>
+                    <VBox spacing="10">
+                        <Button fx:id="answerA" wrapText="true" maxWidth="Infinity" alignment="CENTER_LEFT" styleClass="answer"/>
+                        <Button fx:id="answerB" wrapText="true" maxWidth="Infinity" alignment="CENTER_LEFT" styleClass="answer"/>
+                        <Button fx:id="answerC" wrapText="true" maxWidth="Infinity" alignment="CENTER_LEFT" styleClass="answer"/>
+                        <Button fx:id="answerD" wrapText="true" maxWidth="Infinity" alignment="CENTER_LEFT" styleClass="answer"/>
+                    </VBox>
+                    <Label fx:id="feedbackLabel" wrapText="true" minHeight="44" styleClass="feedback,muted"/>
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <Button fx:id="submitButton" text="Submit" onAction="#submitAnswer" styleClass="primary"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="nextButton" text="Next Question" onAction="#nextQuestion" styleClass="secondary" disable="true"/>
+                    </HBox>
+                </VBox>
+                <Label text="You can change your choice until you submit. Each correct answer earns one point." wrapText="true" styleClass="small,muted"/>
+            </VBox>
+
+            <VBox fx:id="resultScreen" spacing="24" maxWidth="800" visible="false" managed="false">
+                <Label text="QUIZ COMPLETE" styleClass="eyebrow"/>
+                <VBox alignment="CENTER" spacing="20" styleClass="card,result-card">
+                    <Label text="Your results are in." styleClass="hero-title" wrapText="true"/>
+                    <Label text="CORRECT ANSWERS" styleClass="eyebrow"/>
+                    <Label fx:id="resultScore" styleClass="result-score"/>
+                    <Label fx:id="resultPercentage" styleClass="percentage"/>
+                    <ProgressBar fx:id="resultProgress" maxWidth="360"/>
+                    <Label fx:id="resultMessage" wrapText="true" textAlignment="CENTER" maxWidth="510" styleClass="body-copy"/>
+                    <HBox spacing="12" alignment="CENTER">
+                        <Button fx:id="retakeButton" text="Retake Quiz" onAction="#startQuiz" styleClass="primary"/>
+                        <Button fx:id="homeButton" text="Home" onAction="#showHome" styleClass="secondary"/>
+                    </HBox>
+                </VBox>
+                <Label text="Want to practice something new? Add your own questions from Home." wrapText="true" styleClass="small,muted"/>
+            </VBox>
+        </VBox>
+    </ScrollPane>
+</VBox>

@@ -1,0 +1,120 @@
+.root, .dialog-pane {
+    -app-background: #f1f5fb;
+    -app-surface: #ffffff;
+    -app-text: #17253d;
+    -app-muted: #52617a;
+    -app-border: #d1dbe9;
+    -app-blue: #245bd5;
+    -app-blue-hover: #1949b5;
+    -app-tint: #eaf1ff;
+    -app-success: #14633c;
+    -app-success-bg: #e7f5ec;
+    -app-error: #b52b3b;
+    -app-error-bg: #fff0f1;
+    -app-warning: #704d09;
+    -app-warning-bg: #fff4d4;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 15px;
+    -fx-background-color: -app-background;
+    -fx-text-fill: -app-text;
+    -fx-accent: -app-blue;
+    -fx-focus-color: -app-blue;
+    -fx-faint-focus-color: transparent;
+}
+.dark {
+    -app-background: #111a29;
+    -app-surface: #1b283c;
+    -app-text: #edf3ff;
+    -app-muted: #b0bfd5;
+    -app-border: #40536d;
+    -app-blue: #aac7ff;
+    -app-blue-hover: #c5d8ff;
+    -app-tint: #263d5f;
+    -app-success: #8fe1b0;
+    -app-success-bg: #203d32;
+    -app-error: #ffadb8;
+    -app-error-bg: #472c3a;
+    -app-warning: #f3d98e;
+    -app-warning-bg: #403723;
+}
+.app-root, .scroll-pane, .scroll-pane > .viewport { -fx-background-color: -app-background; }
+.scroll-pane { -fx-padding: 0; -fx-background-insets: 0; }
+.label, .check-box { -fx-text-fill: -app-text; }
+.topbar {
+    -fx-padding: 20 36;
+    -fx-background-color: -app-surface;
+    -fx-border-color: transparent transparent -app-border transparent;
+}
+.brand { -fx-font-size: 25px; -fx-font-weight: bold; }
+.brand-caption { -fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: -app-muted; }
+.eyebrow { -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: -app-blue; }
+.card { -fx-padding: 28; -fx-background-color: -app-surface; -fx-background-radius: 16; -fx-border-color: -app-border; -fx-border-radius: 16; }
+.hero { -fx-padding: 32; }
+.hero-title { -fx-font-size: 38px; -fx-font-weight: bold; }
+.section-title { -fx-font-size: 22px; -fx-font-weight: bold; }
+.question-title { -fx-font-size: 26px; -fx-font-weight: bold; }
+.body-copy { -fx-font-size: 16px; -fx-text-fill: -app-muted; -fx-line-spacing: 3; }
+.muted { -fx-text-fill: -app-muted; }
+.small { -fx-font-size: 13px; }
+.pill, .score-pill { -fx-padding: 8 13; -fx-background-color: -app-tint; -fx-background-radius: 8; -fx-text-fill: -app-blue; -fx-font-weight: bold; -fx-font-size: 13px; }
+.button {
+    -fx-background-color: -app-surface;
+    -fx-text-fill: -app-text;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: -app-border;
+    -fx-border-width: 2;
+    -fx-padding: 11 22;
+    -fx-min-height: 44;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.button:hover { -fx-background-color: -app-tint; }
+.button:focused { -fx-border-color: -app-blue; -fx-border-style: segments(3, 3); }
+.primary { -fx-background-color: #245bd5; -fx-border-color: #245bd5; -fx-text-fill: white; }
+.primary:hover { -fx-background-color: #1949b5; -fx-border-color: #1949b5; }
+.primary:focused { -fx-border-color: -app-text; }
+.secondary { -fx-text-fill: -app-blue; }
+.button:disabled { -fx-opacity: 0.5; -fx-cursor: default; }
+.answer { -fx-padding: 14 18; -fx-font-weight: normal; -fx-font-size: 16px; -fx-min-height: 56; }
+.answer.selected { -fx-background-color: -app-tint; -fx-border-color: -app-blue; -fx-text-fill: -app-blue; -fx-font-weight: bold; }
+.answer:disabled { -fx-opacity: 1; }
+.answer.correct { -fx-background-color: -app-success-bg; -fx-border-color: -app-success; -fx-text-fill: -app-success; }
+.answer.incorrect { -fx-background-color: -app-error-bg; -fx-border-color: -app-error; -fx-text-fill: -app-error; }
+.feedback { -fx-font-size: 14px; }
+.success { -fx-text-fill: -app-success; }
+.error { -fx-text-fill: -app-error; -fx-font-size: 13px; }
+.warning { -fx-text-fill: -app-warning; -fx-background-color: -app-warning-bg; -fx-padding: 14; -fx-background-radius: 8; }
+.progress-bar { -fx-pref-height: 8; }
+.progress-bar > .track { -fx-background-color: -app-border; -fx-background-radius: 10; -fx-background-insets: 0; }
+.progress-bar > .bar { -fx-background-color: -app-blue; -fx-background-radius: 10; -fx-background-insets: 0; -fx-padding: 4; }
+.result-card { -fx-padding: 36 28; }
+.result-score { -fx-font-size: 64px; -fx-font-weight: bold; -fx-text-fill: -app-blue; }
+.percentage { -fx-font-size: 28px; -fx-font-weight: bold; }
+.field-label { -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 5 0 0 0; }
+.text-field, .text-area, .combo-box {
+    -fx-background-color: -app-surface;
+    -fx-text-fill: -app-text;
+    -fx-prompt-text-fill: -app-muted;
+    -fx-background-radius: 6;
+    -fx-border-color: -app-border;
+    -fx-border-radius: 6;
+    -fx-border-width: 2;
+    -fx-padding: 8;
+}
+.text-area .content { -fx-background-color: -app-surface; }
+.text-area .scroll-pane, .text-area .scroll-pane > .viewport { -fx-background-color: -app-surface; }
+.text-field:focused, .text-area:focused, .combo-box:focused { -fx-border-color: -app-blue; }
+.combo-box .list-cell { -fx-text-fill: -app-text; -fx-background-color: -app-surface; }
+.combo-box .list-cell:filled:hover, .combo-box .list-cell:filled:selected { -fx-background-color: -app-tint; }
+.combo-box .arrow { -fx-background-color: -app-muted; }
+.check-box { -fx-cursor: hand; }
+.check-box .box { -fx-background-color: -app-surface; -fx-border-color: -app-muted; -fx-border-radius: 4; -fx-padding: 5; }
+.check-box:selected .mark { -fx-background-color: -app-blue; }
+.check-box:focused .box { -fx-border-color: -app-blue; -fx-border-width: 2; }
+.scroll-bar { -fx-background-color: -app-background; }
+.scroll-bar .thumb { -fx-background-color: -app-border; -fx-background-radius: 8; }
+.scroll-bar .increment-button, .scroll-bar .decrement-button { -fx-background-color: -app-background; }
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow { -fx-background-color: -app-muted; }
+.dialog-pane { -fx-padding: 18; }
+.dialog-pane > .button-bar > .container { -fx-padding: 16 0 0 0; }
