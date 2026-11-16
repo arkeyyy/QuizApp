@@ -73,7 +73,7 @@ public final class LocalStorage {
 
     public void saveQuestions(List<Question> questions) throws IOException {
         if (!questionsLoaded) loadQuestions();
-        if (questionsBlocked) throw new IOException("Custom questions could not be read. Back up and repair or move questions.properties, then restart the app before saving.");
+        if (questionsBlocked) throw new IOException("Saving is unavailable because questions.properties could not be read.");
         Properties properties = new Properties();
         properties.setProperty("count", Integer.toString(questions.size()));
         for (int i = 0; i < questions.size(); i++) {
@@ -88,7 +88,7 @@ public final class LocalStorage {
 
     public void saveTheme(Theme theme) throws IOException {
         if (!themeLoaded) loadTheme();
-        if (themeBlocked) throw new IOException("Theme settings could not be read. Back up and repair or move settings.properties, then restart the app before saving.");
+        if (themeBlocked) throw new IOException("Saving is unavailable because settings.properties could not be read.");
         Properties properties = new Properties();
         properties.setProperty("theme", theme.name());
         write(directory.resolve("settings.properties"), properties);
@@ -131,6 +131,6 @@ public final class LocalStorage {
 
     private static String readWarning(Path path, String description) {
         return "Could not load " + description + " from " + path + ". The file was left unchanged. "
-            + "Back it up and repair or move it, then restart the app to enable saving. You can still take the built-in quiz.";
+            + "Saving to this file is unavailable. Built-in questions remain available.";
     }
 }

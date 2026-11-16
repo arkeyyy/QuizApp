@@ -12,7 +12,7 @@ class LocalStorageTest {
     @TempDir Path directory;
 
     private Question question() {
-        return new Question("Which word contains ñ?\nChoose one: = café", List.of("mañana", "Java", "class", "new"), 0);
+        return new Question("Which word contains ñ?\nSample: = café", List.of("mañana", "Java", "class", "new"), 0);
     }
 
     @Test

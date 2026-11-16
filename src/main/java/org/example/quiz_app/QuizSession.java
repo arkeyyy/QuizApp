@@ -21,14 +21,14 @@ public final class QuizSession {
     public void selectAnswer(int index) {
         requireActive();
         if (submitted) throw new IllegalStateException("This answer has already been submitted.");
-        if (index < 0 || index >= 4) throw new IllegalArgumentException("Choose one of the four answers.");
+        if (index < 0 || index >= 4) throw new IllegalArgumentException("Invalid answer selection.");
         selectedAnswerIndex = index;
     }
 
     public boolean submit() {
         requireActive();
         if (submitted) throw new IllegalStateException("This answer has already been submitted.");
-        if (selectedAnswerIndex < 0) throw new IllegalStateException("Select an answer before submitting.");
+        if (selectedAnswerIndex < 0) throw new IllegalStateException("No answer selected.");
         submitted = true;
         boolean correct = selectedAnswerIndex == currentQuestion().correctAnswerIndex();
         if (correct) score++;
@@ -37,7 +37,7 @@ public final class QuizSession {
 
     public void next() {
         requireActive();
-        if (!submitted) throw new IllegalStateException("Submit your answer before continuing.");
+        if (!submitted) throw new IllegalStateException("Current answer has not been submitted.");
         if (isLastQuestion()) {
             complete = true;
         } else {
@@ -48,7 +48,7 @@ public final class QuizSession {
     }
 
     private void requireActive() {
-        if (complete) throw new IllegalStateException("This quiz is complete. Start a new attempt.");
+        if (complete) throw new IllegalStateException("This quiz is complete.");
     }
 
     public Question currentQuestion() { return questions.get(questionIndex); }

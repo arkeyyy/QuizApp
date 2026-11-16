@@ -64,7 +64,7 @@ class QuizUiTest {
             button("startButton").fire();
             assertTrue(button("nextButton").isDisabled());
             button("submitButton").fire();
-            assertTrue(label("feedbackLabel").getText().contains("Select an answer"));
+            assertEquals("No answer selected.", label("feedbackLabel").getText());
             assertEquals("Score  0 / 10", label("scoreLabel").getText());
             List<Question> questions = QuestionBank.builtInQuestions();
             for (int i = 0; i < questions.size(); i++) {

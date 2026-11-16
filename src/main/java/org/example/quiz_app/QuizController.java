@@ -37,7 +37,6 @@ public final class QuizController {
     @FXML private Label feedbackLabel;
     @FXML private Label resultScore;
     @FXML private Label resultPercentage;
-    @FXML private Label resultMessage;
     @FXML private ProgressBar questionProgress;
     @FXML private ProgressBar resultProgress;
     @FXML private Button answerA;
@@ -97,7 +96,7 @@ public final class QuizController {
             button.setDisable(false);
             button.getStyleClass().removeAll("selected", "correct", "incorrect");
         }
-        setFeedback("Choose one answer, then select Submit.", "muted");
+        setFeedback("", "muted");
         submitButton.setDisable(false);
         nextButton.setDisable(true);
         nextButton.setText(session.isLastQuestion() ? "View Results" : "Next Question");
@@ -112,7 +111,7 @@ public final class QuizController {
             if (i == index) button.getStyleClass().add("selected");
             button.setAccessibleText(button.getText() + (i == index ? ", selected" : ""));
         }
-        setFeedback("Answer " + (char) ('A' + index) + " selected. Submit to check your answer.", "muted");
+        setFeedback("Answer " + (char) ('A' + index) + " selected.", "muted");
     }
 
     @FXML
@@ -150,9 +149,6 @@ public final class QuizController {
             resultScore.setText(session.score() + " / " + session.totalQuestions());
             resultPercentage.setText(String.format(Locale.ROOT, "%.1f%%", session.percentage()));
             resultProgress.setProgress(session.percentage() / 100.0);
-            resultMessage.setText(session.score() == session.totalQuestions()
-                ? "Perfect score. You know your Java fundamentals!"
-                : "Every attempt is practice. Try again to strengthen what you know.");
             showScreen(resultScreen);
             focus(retakeButton);
         } else {
@@ -165,7 +161,7 @@ public final class QuizController {
     private void showHome() {
         questionCount.setText(questionBank().size() + " questions");
         homeNotice.setText(customQuestions.isEmpty() ? "Includes 10 Java fundamentals questions."
-            : "10 built-in + " + customQuestions.size() + " custom questions. Ready for your next attempt.");
+            : "10 built-in + " + customQuestions.size() + " custom questions.");
         showScreen(homeScreen);
         focus(startButton);
     }
@@ -178,7 +174,7 @@ public final class QuizController {
             storage.saveQuestions(updated);
             customQuestions.add(question);
             questionCount.setText(questionBank().size() + " questions");
-            homeNotice.setText("Question saved. Your next quiz will contain " + questionBank().size() + " questions.");
+            homeNotice.setText("Question saved. " + questionBank().size() + " questions available.");
         });
     }
 
@@ -188,7 +184,7 @@ public final class QuizController {
         try {
             storage.saveTheme(themeToggle.isSelected() ? LocalStorage.Theme.DARK : LocalStorage.Theme.LIGHT);
         } catch (IOException | SecurityException ex) {
-            addWarning("Your theme changed for this session, but could not be saved. " + ex.getMessage());
+            addWarning("Theme changed for this session but could not be saved. " + ex.getMessage());
         }
     }
 
