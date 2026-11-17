@@ -1,7 +1,6 @@
 # Quiz Lab: CSIT228 Quiz App
 
-A JavaFX multiple-choice quiz implementing the **Quiz App** task on page 2 of
-`CSIT228-Midterms-Laboratory-v2.pdf`, including both named bonuses.
+A JavaFX multiple-choice quiz app with dark mode and support for custom questions.
 
 ## Technical details
 
@@ -49,5 +48,3 @@ they do not change saved questions or preferences. RGB screenshots are written t
 - `LocalStorage`: versioned properties and temporary-file replacement for safe local saves.
 - `QuizApplication`, `QuizController`, `QuestionEditor`: JavaFX screens and interaction handling.
 - `quiz-view.fxml` and `quiz.css`: layout and shared light/dark styling.
-
-The Perfect Number and Smarter BruteForce tasks in the PDF are outside this application's scope.
